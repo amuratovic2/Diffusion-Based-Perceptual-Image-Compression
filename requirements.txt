@@ -1,0 +1,12 @@
+numpy>=1.24,<2.0
+pillow>=9.4
+tqdm>=4.65
+matplotlib>=3.7
+einops>=0.6
+torch>=2.0
+torchvision>=0.15
+lpips>=0.1.4
+pytorch-msssim>=0.2.1
+ema-pytorch>=0.2.3
+scikit-image>=0.20
+pyyaml>=6.0

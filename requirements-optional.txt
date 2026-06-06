@@ -1,0 +1,3 @@
+# Optional learned-codec baselines. On Windows this may require Microsoft C++
+# Build Tools because CompressAI builds native entropy-coding extensions.
+compressai>=1.2
