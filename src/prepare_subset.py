@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import random
 from pathlib import Path
 
 from PIL import Image
@@ -22,6 +23,8 @@ def main() -> None:
     parser.add_argument("--output", required=True, help="Output folder.")
     parser.add_argument("--limit", type=int, default=1000, help="Maximum number of images.")
     parser.add_argument("--size", type=int, default=256, help="Output square size.")
+    parser.add_argument("--shuffle", action="store_true", help="Randomly sample images before applying the limit.")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed used with --shuffle.")
     parser.add_argument(
         "--no-crop",
         action="store_true",
@@ -32,8 +35,11 @@ def main() -> None:
     input_root = Path(args.input)
     output_root = ensure_dir(args.output)
     rows = []
+    image_paths = list(iter_images(input_root))
+    if args.shuffle:
+        random.Random(args.seed).shuffle(image_paths)
 
-    for index, path in enumerate(iter_images(input_root)):
+    for index, path in enumerate(image_paths):
         if index >= args.limit:
             break
         try:
@@ -54,4 +60,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

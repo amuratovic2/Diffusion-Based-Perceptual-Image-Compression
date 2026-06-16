@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+.DS_Store
 
 /data/
 /results/
@@ -10,3 +11,6 @@ __pycache__/
 *.pt
 *.pth
 *.ckpt
+
+# Documentation and generated report/presentation artifacts
+/docs/
